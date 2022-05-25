@@ -1,0 +1,8 @@
+#search{
+  width: 50%;
+}
+
+#results{
+  display: none;
+  border: 1px solid gray;
+}

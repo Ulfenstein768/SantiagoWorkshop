@@ -1,0 +1,10 @@
+#items{
+
+}
+.item{
+  padding: 2rem;
+  border: 1px solid black;
+}
+.item img{
+  width: 25rem;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <a href="https://google.com" onclick="return false">Take me to Google</a>
+
+  <form action="https://ecuaguia.com/iceland/api-log-in.php" onsubmit="login(); return false" >
+    <input name="user_name" type="text" placeholder="user name">
+    <input name="password" type="password" placeholder="password">
+    <button>Log in</button>
+  </form>
+
+
+  <script>
+  async function login(){
+    // Get the form
+    const form = event.target
+    // console.log(form)
+    // Connect to the api
+    // You are in your local machine and you are pointing to
+    // my server that is in another machine. CORS error
+    const conn = await fetch("https://ecuaguia.com/iceland/api-log-in.php", {
+      method : "POST",
+      // Send data to the api (user_name and password)
+      body : new FormData(form)
+    })
+    // Get response back
+    const response = await conn.json()
+    console.log(response)    
+    // if the response is an error show an error to the user
+    if( ! conn.ok){
+      alert("Sorry, you are not logged in")
+      return // stop here, do not continuw reading the code
+    }
+
+    // if the response is ok then show something nice to the user
+    alert("Great!")
+  }
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

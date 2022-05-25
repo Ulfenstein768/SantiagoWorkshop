@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form onsubmit="return false">
+    <input type="text" value="639be078-1ff3-4eef-b24a-6424af2f1531">
+    <input type="text" name="item_name" placeholder="new item name" value="TSKOOOOOOOLI">
+    <button onclick="update_item()">Update Item</button>
+  </form>
+
+  <script>
+    async function update_item(){
+      const form = event.target.form
+      console.log(form)
+      const conn = await fetch("https://coderspage.com/iceland/item/639be078-1ff3-4eef-b24a-6424af2f1531", {
+        method : "PATCH",
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        },
+        body : new FormData(form)        
+      })
+    }
+
+  </script>
+
+
+  
+</body>
+</html>

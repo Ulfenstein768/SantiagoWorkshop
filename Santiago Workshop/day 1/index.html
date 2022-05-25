@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form data</title>
+</head>
+<body>
+
+    <a href="https://google.com" onclick="return false">Take me to Google</a>
+
+     <form action="https://ecuaguia.com/iceland/api-log-in.php" onsubmit="login(); return false"> <!-- Default method in a form is a get, we want a post method because we want the form to get information from the input fields-->
+        <input type="text" placeholder="user name" name="user_name"> <!-- Must! Name = Key, so you must write in the input field the key so that the form and api can communicate -->
+        <input type="password" placeholder="password" name="password">
+        <button>Log in</button>
+    </form>
+
+    <script>
+        async function login(){ // Principle for every Api. // Async = await
+            // Get the form: 
+            const form = event.target
+            //console.log(form)
+            // Connect to the api
+            const con = await fetch("https://ecuaguia.com/iceland/api-log-in.php", {
+                method : "POST",
+                // Send data to the api (username & password)
+                body : new FormData(form)
+            });
+            // Get response back
+            const res = await con.json() 
+            console.log(res)
+            // If response is an error then show an error message.
+            if(! con.ok){
+                alert("Sorry, you are not logged in")
+                return // stop here, don't continue to read the code
+            }
+            // If the response is okay, then show something nice.
+            alert("GREAT!")
+        }
+
+        // Fetch / AJAX
+    </script>
+</body>
+</html>

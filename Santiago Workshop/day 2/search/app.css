@@ -1,0 +1,14 @@
+#items
+
+.item{
+    padding: 2rem;
+    border: 1px solid black; 
+}
+
+button{
+    width: 100%; 
+    height: 3rem;
+    background: green;
+    color: white;
+    cursor: pointer;
+}

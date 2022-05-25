@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="search.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="search">
+    <form onsubmit="return false">
+      <input  type="text" 
+              placeholder="What are you looking for?" 
+              onfocus="show_results()"
+              onblur="hide_results()"
+              oninput="search()">
+      <button onclick="search(); show_results();">🔎</button>
+    </form>
+    <div id="results">
+      <div class="result">iphone 10</div>
+      <div class="result">iphone 11</div>
+    </div>
+  </div>
+
+  <script src="search.js"></script>
+
+</body>
+</html>
